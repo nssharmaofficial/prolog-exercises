@@ -11,10 +11,10 @@ sum([X|L],R):- sum(L,S), R is S+X.
 
 list_difference([],L,[]).
 list_difference([X|L1],L2,LO):- member(X,L2),            
-                                notin(L1,L2,LO).
+                                list_difference(L1,L2,LO).
                       
 list_difference([X|L1],L2,[X|LO]):- \+member(X,L2),    % \+ means NOT
-                                    notin(L1, L2, LO).
+                                    list_difference(L1, L2, LO).
 
 
 
