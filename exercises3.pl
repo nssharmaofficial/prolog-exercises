@@ -9,12 +9,12 @@ sum([X|L],R):- sum(L,S), R is S+X.
 % Write a program which returns the element of a list L1
 % which are not included in a second list L2.
 
-notin([],L,[]).
-notin([X|L1],L2,LO):- member(X,L2),            
-                      notin(L1,L2,LO).
+list_difference([],L,[]).
+list_difference([X|L1],L2,LO):- member(X,L2),            
+                                notin(L1,L2,LO).
                       
-notin([X|L1],L2,[X|LO]):- \+member(X,L2),    % \+ means NOT
-                          notin(L1, L2, LO).
+list_difference([X|L1],L2,[X|LO]):- \+member(X,L2),    % \+ means NOT
+                                    notin(L1, L2, LO).
 
 
 
@@ -30,3 +30,5 @@ ascend([X,Y|L]):- X<Y, ascend([Y|L]).    % list with atleast two elements
 % equivalent.
 
 equalTrees(t(X,T1,T2),t(X,T1,T2)).
+
+
