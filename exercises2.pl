@@ -3,6 +3,8 @@
 % using the constant 0 and the unary successor function for
 % the terms representing the natural numbers.
 
+s(0).
+s(X):- X.
 plus(0,X,X).
 plus(s(X),Y,s(Z)) :- plus(X,Y,Z).
 
