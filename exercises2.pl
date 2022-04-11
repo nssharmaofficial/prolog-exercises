@@ -8,7 +8,7 @@ s(X):- X.
 plus(0,X,X).
 plus(s(X),Y,s(Z)) :- plus(X,Y,Z).
 
-
+minus(X,Y,Z) :- plus(Z,Y,X).
 
 % Using the same notation compute the product of two 
 % natural numbers.
