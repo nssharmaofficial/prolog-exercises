@@ -31,6 +31,12 @@ merge(L2,[],L2).
 merge([X|L1],[Y|L2],[X|L]) :- X<Y, merge(L1,[Y|L2],L). 
 merge([X|L1],[Y|L2],[Y|L]) :- Y=<X, merge([X|L1],L2,L). 
 
+% using cut operator
+merge([],L,L):- !. 
+merge(L,[],L):- !.
+merge([X|L],[Y|L1],[X|LO]) :- X<Y, !, merge(L,[Y|L1],LO).
+merge([X|L],[Y|L1],[Y|LO]) :- merge([X|L],L1,LO).
+
 
 
 % Write a program that taken one list L of integers and one 
