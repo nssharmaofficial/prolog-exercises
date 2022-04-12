@@ -84,7 +84,10 @@ reverse([H|L],R) :- reverse(L,T),    % reversing tail
                     append(T,[H],R). % appending head to reversed tail
 
 %solution2)  
-reverse_help([],H,H).    % second argument is EMPTY
+% reverse_help recursively pushes the elements from the beginning 
+% of the first list to the front of the second list.
+% This reverses the order of the elements.
+reverse_help([],H,H).    
 reverse_help([X|Xs],H,R) :- reverse_help(Xs,[X|H],R).
 reverse(X,Y) :- reverse_help(X,[],Y). 
 
