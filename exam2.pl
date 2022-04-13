@@ -1,3 +1,4 @@
+% From Professor Moreno Falaschi at University of Siena 
 % Exercise 2) Write a Prolog program ‘eliminate2consecutivevalues(L,X,Y,LO)’ which
 % takes one input list of integers L, and two integer values X and Y, and returns
 % the list LO. LO is obtained by eliminating from L the first occurrence of 
