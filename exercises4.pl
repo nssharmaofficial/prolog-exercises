@@ -1,3 +1,5 @@
+% From Professor Moreno Falaschi at University of Siena 
+
 % Write a program to check if the number of elements
 % in two binary trees T1 and T2 is the same.
 
