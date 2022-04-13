@@ -3,6 +3,7 @@
 % of values, and two integer numbers N, M, 
 % returns an ordered list LO containing all elements in L plus N and M,
 % without repetitions.
+
 % So, for instance ascendingorder([-5,-3,0,1,1,4,7],7,2,[-5,-3,0,1,2,4,7]) is true.
 
 % if X is member of a list
@@ -11,10 +12,10 @@ member(X,[_|T]):-member(X,T).
 
 % remove duplicates
 remove_duplicates([], []).
-remove_duplicates([H|T], Result) :- member(H,T), !,
-                                    remove_duplicates(T, Result).
-remove_duplicates([H|T], [H|Result]) :- % if H is not a member of T
-                                        remove_duplicates(T, Result).
+remove_duplicates([H|T],R) :- member(H,T), !,
+                              remove_duplicates(T,R).
+remove_duplicates([H|T],[H|R]) :- % if H is not a member of T
+                                  remove_duplicates(T,R).
 
 % insert X in its correct position in a sorted list
 insert(X, [], [X]).
