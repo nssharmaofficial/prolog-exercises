@@ -98,3 +98,19 @@ reverse(X,Y) :- reverse_help(X,[],Y).
 
 palindrome(L) :- reverse(L,L).
 
+
+
+% Write a Prolog program, which takes in input a list of lists with
+% two elements each, and a constant c, and which returns two lists Left 
+% and Right, such that the Left list contains the elements which appear 
+% to the right of c in a pair, and Right list contains the elements
+% which appear to the left of c in a pair.
+
+
+listOfpairList([],_,[], []).
+listOfpairList([[X,X]|L],X, [X|L1],[X|L2] ):- listOfpairList(L,X,L1,L2).
+listOfpairList([[X,Y]|L],X, [Y|L1],L2 ):- X=\=Y, listOfpairList(L,X,L1,L2).
+listOfpairList([[Y,X]|L],X, L1,[Y|L2] ):- X=\=Y, listOfpairList(L,X,L1,L2).
+listOfpairList([[Y,Z]|L],X, L1,L2 ):- X=\=Y, X=\= Z, listOfpairList(L,X,L1,L2).
+
+
