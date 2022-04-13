@@ -23,8 +23,8 @@ insert(X, [Y|T], [X,Y|T]) :- X < Y, !.
 insert(X, [Y|T0], [Y|T])  :- % if Y=<X then insert X in tail
                              insert(X, T0, T).
     
-ascendingorder(L,[N1],[N2],[LO]):- insert(N1,L,L1),
-                                   insert(N2,L1,L2),
-                                   remove_duplicates(L2,LO).
+ascendingorder(L,N1,N2,LO):- insert(N1,L,L1),
+                             insert(N2,L1,L2),
+                             remove_duplicates(L2,LO).
                                       
                                        
