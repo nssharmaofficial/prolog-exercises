@@ -1,3 +1,5 @@
+% From Professor Moreno Falaschi at University of Siena 
+
 % Write a Prolog program for computing the addition 
 % of two natural numbers represented in the Peano form:
 % using the constant 0 and the unary successor function for
