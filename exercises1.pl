@@ -79,6 +79,18 @@ subset([X|L],L2) :- member(X,L2),
 
 
 
+
+
+% Write a program which given two lists L1 and L2 of
+% integers decides if all elements in the first list
+% are present in the second one.
+
+positiveValues([], []).
+positiveValues([X|L], [X|LO]) :- X>0, positiveValues(L, LO).
+positiveValues([X|L], LO) :- X=<0, positiveValues(L, LO).
+
+
+
 % Write a program to look for a value N inside a 
 % binary search tree.
 
