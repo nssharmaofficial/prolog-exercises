@@ -1,3 +1,5 @@
+% From Professor Moreno Falaschi at University of Siena 
+
 % Write a predicate second(X,List) which checks
 % if X is the second element of List.
 
