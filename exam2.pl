@@ -14,9 +14,9 @@ element_at(X,[_|T],K) :- element_at(X,T,K2),
 
 % find the first pair of XY in list
 first_pair(X,Y,L,K) :- element_at(Y,L,KY),
-    				           KX is KY-1,
-    				           element_at(X,L,KX),!,
-    				           K is KX.
+                       KX is KY-1,
+                       element_at(X,L,KX),!,
+                       K is KX.
                
 % delete K-th item from a list
 delete_kth(1,[_|T],T).
