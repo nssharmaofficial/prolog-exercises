@@ -55,13 +55,14 @@ next_to(X,Y,[_|Z]) :- next_to(X,Y,Z).
 
 
 
-% Compute the depth of binary tree.
+% Compute the depth (height) of binary tree.
+% It is the number of edges on the longest path from
+% the root to a leaf.
 
 depth_tree(nil,0).
 depth_tree(t(X,T1,T2),D) :- depth_tree(T1,D1),
                             depth_tree(T2,D2),
                             D is max(D1,D2) + 1.
                             
-                            
-
-
+  
+                   
