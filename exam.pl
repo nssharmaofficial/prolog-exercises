@@ -5,32 +5,25 @@
 % without repetitions.
 % So, for instance ascendingorder([-5,-3,0,1,1,4,7],7,2,[-5,-3,0,1,2,4,7]) is true.
 
-% append, delete repetitions, ascending order
-
-% is X member of list
+% if X is member of a list
 member(X,[X|_]).
-member(X,[H|T]):-member(X,T).
+member(X,[_|T]):-member(X,T).
 
-% delete all Xs from list 
-deleteall(X,[],[]).
-deleteall(X,[X|T],U):-!,deleteall(X,T,U).
-deleteall(X,[H|T],[H|U]):-deleteall(X,T,U).
+% remove duplicates
+remove_duplicates([], []).
+remove_duplicates([H|T], Result) :- member(H,T), !,
+                                    remove_duplicates(T, Result).
+remove_duplicates([H|T], [H|Result]) :- % if H is not a member of T
+                                        remove_duplicates(T, Result).
 
-delete_dupl([],[]).
-delete_dupl([H|T],D):- member(H,T),!,
-                       deleteall(H,T,T1),
-                       delete_dupl(T1,D).
-delete_dupl([H|T],[H|D]):-delete_dupl(T,D).
-
-
-ascendingorder([],[],[],[]).
-ascendingorder([],[],[N2],[N2]).
-ascendingorder([],[N1],[],[N1]).
-asendingorder([],[N1],[N2],[N1|N2]) :- N1<N2.
-asendingorder([],[N1],[N2],[N2|N1]) :- N2=<N1.
-ascendingorder([H|L],[N1],[N2],[LO]):- append([H|L],[N1],A1),
-                                       append(A1,[N2],A2),
-                                       delete_dupl(A2,D),
-                                       ascendingorder([D,[],[],LO]).
-                                       
+% insert X in its correct position in a sorted list
+insert(X, [], [X]).
+insert(X, [Y|T], [X,Y|T]) :- X < Y, !.
+insert(X, [Y|T0], [Y|T])  :- % if Y=<X then insert X in tail
+                             insert(X, T0, T).
+    
+ascendingorder(L,[N1],[N2],[LO]):- insert(N1,L,L1),
+                                   insert(N2,L1,L2),
+                                   remove_duplicates(L2,LO).
+                                      
                                        
