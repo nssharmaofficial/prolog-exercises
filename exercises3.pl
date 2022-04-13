@@ -1,3 +1,5 @@
+% From Professor Moreno Falaschi at University of Siena 
+
 % Write a program which computes the addition of integers
 % in a list of integers.
 
