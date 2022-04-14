@@ -1,3 +1,5 @@
+% From Professor Moreno Falaschi at University of Siena 
+
 % Exercise 3) Non empty tree is represented by the term t(N,Tree1,Tree2), 
 % where ’t’ is a ternary function, N is the root (an integer value), 
 % and Tree1 and Tree2 represents (inductively) the left and right subtrees.
