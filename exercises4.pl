@@ -55,7 +55,7 @@ same_elements([H|T], L2) :-   list_same_length([H|T],L2),
 next_to(X,Y,[X,Y|_]).
 next_to(X,Y,[_|Z]) :- next_to(X,Y,Z).
 
-
+%% NOT FINISHED
 
 % Compute the depth (height) of binary tree.
 % It is the number of edges on the longest path from
