@@ -36,8 +36,8 @@ list_same([X|L1],L2,LO):-     \+member(X,L2),
                               list_same(L1,L2,LO).                                  
 
 
-intersectionTrees(T1,T2,L) :- collect(T1,L1),
-                              collect(T2,L2),
+intersectionTrees(T1,T2,L) :- elements_in_tree(T1,L1),
+                              elements_in_tree(T2,L2),
                               list_same(L1,L2,LO),
                               remove_duplicates(LO,L).
                 
