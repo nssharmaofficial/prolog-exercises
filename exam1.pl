@@ -15,7 +15,7 @@ remove_duplicates([H|T],[H|R]) :- % if H is not a member of T
                                   remove_duplicates(T,R).
 
 % insert X in its correct position in a sorted list
-insert_noDuplication(X, [], [X]).
+insert(X, [], [X]).
 insert(X, [Y|T], [X,Y|T]) :- X < Y, !.
 insert(X, [Y|T0], [Y|T])  :- % if Y=<X then insert X in tail
                              insert(X, T0, T).
