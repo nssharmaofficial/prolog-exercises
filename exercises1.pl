@@ -83,9 +83,8 @@ subset([X|L],L2) :- member(X,L2),
 
 
 
-% Write a program which given two lists L1 and L2 of
-% integers decides if all elements in the first list
-% are present in the second one.
+% Write a program which returns only positive integers
+% in a list.
 
 positiveValues([], []).
 positiveValues([X|L], [X|LO]) :- X>0, positiveValues(L, LO).
