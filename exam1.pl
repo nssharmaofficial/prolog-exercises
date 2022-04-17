@@ -26,7 +26,7 @@ ascendingorder(L,N1,N2,LO):- insert(N1,L,L1),
                              
    
 % ----------------------------------------------------------------------------------
-% EXAM SOLUTION (?):
+% EXAM SOLUTION (? - not really working when there are already duplicates in list):
 
 insert_noDuplication(X,[],[X]).
 insert_noDuplication(X,[X|L],[X|L]) :- !.
