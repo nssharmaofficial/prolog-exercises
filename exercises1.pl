@@ -104,3 +104,7 @@ positiveValues([X|L], LO) :- X=<0, positiveValues(L, LO).
 searchNinTree(N,t(N,_,_)).
 searchNinTree(N,t(_,T1,_)) :- searchNinTree(N,T1).
 searchNinTree(N,t(_,_,T2)) :- searchNinTree(N,T2).
+
+
+
+
