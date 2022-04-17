@@ -81,8 +81,6 @@ subset([X|L],L2) :- member(X,L2),
 
 
 
-
-
 % Write a program which returns only positive integers
 % in a list.
 
