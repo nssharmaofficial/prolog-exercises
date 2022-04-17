@@ -31,3 +31,11 @@ eliminate2consecutivevalues(L,X,Y,L2) :- first_pair(X,Y,L,K),
 eliminate2consecutivevalues(L,X,Y,L) :- not(first_pair(X,Y,L,_)).
 
 
+%-----------------------------------------------------------------------------------------------
+% EXAM SOLUTION:
+
+eliminate2consecutivevalues([],X,Y,[]).
+eliminate2consecutivevalues([A],X,Y,[A]).
+eliminate2consecutivevalues([X,Y|L],X,Y,L) :- !.
+eliminate2consecutivevalues([A,B|L],X,Y,[A|LO]) :- eliminate([B|L],X,Y,LO).
+
