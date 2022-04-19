@@ -24,16 +24,14 @@ elements_in_tree(t(X,L,R),[X|S]) :- elements_in_tree(L,SL),
 remove_duplicates([], []).
 remove_duplicates([H|T],R) :-     member(H,T), !,
                                   remove_duplicates(T,R).
-remove_duplicates([H|T],[H|R]) :- % if H is not a member of T
-                                  remove_duplicates(T,R).
+remove_duplicates([H|T],[H|R]) :- remove_duplicates(T,R).
 
 
 list_same([],_,[]).
 list_same(_,[],[]).
-list_same([X|L1],L2,[X|LO]):- member(X,L2),            
+list_same([X|L1],L2,[X|LO]):- member(X,L2), !,           
                               list_same(L1,L2,LO).
-list_same([X|L1],L2,LO):-     \+member(X,L2),  
-                              list_same(L1,L2,LO).                                  
+list_same([X|L1],L2,LO):- list_same(L1,L2,LO).                                  
 
 
 intersectionTrees(T1,T2,L) :- elements_in_tree(T1,L1),
