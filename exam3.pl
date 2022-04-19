@@ -51,13 +51,12 @@ append_without_rep([X|L1],L2,[X|LO]) :- append_without_rep(L1,L2,LO).
 
 intersectionTrees(nil,_,[]).
 intersectionTrees(_,nil,[]).
-intersectionTrees(t(X,T1,T2),T3,[X|L]) :-  searchNinTree(X,T3),
+intersectionTrees(t(X,T1,T2),T3,[X|L]) :-  searchNinTree(X,T3), !,
                                            itersectionTrees(T1,T3,L1),
                                            intersectionTrees(T2,T3,L2),
                                            append_without_rep(L1,L2,L).
                                            
-intersectionTrees(t(X,T1,T2),T3,L) :- not(searchNinTree(X,T3)),
-                                      intersectionTrees(T1,T3,L1),
+intersectionTrees(t(X,T1,T2),T3,L) :- intersectionTrees(T1,T3,L1),
                                       intersectionTrees(T2,T3,L2),
                                       append_without_rep(L1,L2,L).
                                       
