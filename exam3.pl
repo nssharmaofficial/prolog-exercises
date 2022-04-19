@@ -40,8 +40,27 @@ intersectionTrees(T1,T2,L) :- elements_in_tree(T1,L1),
                               elements_in_tree(T2,L2),
                               list_same(L1,L2,LO),
                               remove_duplicates(LO,L).
-                
+                              
+% ---------------------------ANOTHER SOLUTION ---------------------------------
 
+searchNinTree(N,t(N,_,_)).
+searchNinTree(N,t(_,T1,_)) :- searchNinTree(N,T1).
+searchNinTree(N,t(_,_,T2)) :- searchNinTree(N,T2).
 
+append_without_rep([],X,X).
+append_without_rep(X,[],X).
+append_without_rep([X|L1],L2,[X|LO]) :- append_without_rep(L1,L2,LO). 
 
-                
+intersectionTrees(nil,_,[]).
+intersectionTrees(_,nil,[]).
+intersectionTrees(t(X,T1,T2),T3,[X|L]) :-  intersectionTrees(T1,T3,L1),
+    									                     intersectionTrees(T2,T3,L2),
+    									                     append_without_rep(L1,L2,L),
+    									                     searchNinTree(X,T3).
+intersectionTrees(t(X,T1,T2),T3,L) :- intersectionTrees(T1,T3,L1),
+    									                intersectionTrees(T2,T3,L2),
+    									                append_without_rep(L1,L2,L),
+    									                not(searchNinTree(X,T3)).
+                              		  
+    		
+                         
