@@ -22,15 +22,13 @@ elements_in_tree(nil,[]).
 elements_in_tree(t(X,L,R),[X|S]) :- elements_in_tree(L,SL), 
                                     elements_in_tree(R,SR), 
                                     append(SL,SR,S).
-    					  
-                                
+    					                       
 intersection_help([],_,_,[]).
 intersection_help([X|L1],L2,L,[X|LO]) :- member(X,L2),!,
                                          not(member(X,L)),!,
                                          intersection_help(L1,L2,[X|L],LO).
 intersection_help([_|L1],L2,L,LO) :- intersection_help(L1,L2,L,LO).
 intersection(L1,L2,LO) :- intersection_help(L1, L2, [], LO).                                
-
 
 intersectionTrees(T1,T2,L) :- elements_in_tree(T1,L1),
                               elements_in_tree(T2,L2),
@@ -59,8 +57,6 @@ intersectionTrees(t(X,T1,T2),T3,[X|L]) :-  searchNinTree(X,T3), !,
                                            
 intersectionTrees(t(X,T1,T2),T3,L) :- intersectionTrees(T1,T3,L1),
                                       intersectionTrees(T2,T3,L2),
-                                      append_without_rep(L1,L2,L).
-                                      
-                              		  
-    		
+                                      append_without_rep(L1,L2,L).     
+                              		     		
                          
