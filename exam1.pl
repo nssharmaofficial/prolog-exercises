@@ -6,7 +6,6 @@
 % without repetitions.
 % So, for instance ascendingorder([-5,-3,0,1,1,4,7],7,2,[-5,-3,0,1,2,4,7]) is true.
 
-
 remove_duplicates([], []).
 remove_duplicates([H|T],R) :- member(H,T), !,
                               remove_duplicates(T,R).
