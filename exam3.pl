@@ -14,6 +14,9 @@
 %                   [-1,3,4]).
 % is true.
 
+% ------------------------- FIRST SOLUTION -------------------------------
+% Write two lists containing all elements in the trees and then do
+% intersection of both the lists to remove duplicates.
 
 elements_in_tree(nil,[]).
 elements_in_tree(t(X,L,R),[X|S]) :- elements_in_tree(L,SL), 
@@ -33,7 +36,10 @@ intersectionTrees(T1,T2,L) :- elements_in_tree(T1,L1),
                               elements_in_tree(T2,L2),
                               intersection(L1,L2,L).
                               
-% ---------------------------ANOTHER SOLUTION ---------------------------------
+% ---------------------------SECOND SOLUTION ---------------------------------
+% For all elements in the first tree check if they appear in the second one,
+% and if yes then write them in a list (one for right path and one for left).
+% In the end append both lists without repetitions.
 
 searchNinTree(N,t(N,_,_)).
 searchNinTree(N,t(_,T1,_)) :- searchNinTree(N,T1).
