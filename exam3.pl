@@ -22,8 +22,8 @@ elements_in_tree(t(X,L,R),[X|S]) :- elements_in_tree(L,SL),
     					  
                                 
 intersection_help([],_,_,[]).
-intersection_help([X|L1],L2,L,[X|LO]) :- member(X,L2),
-                                         not(member(X,L)),
+intersection_help([X|L1],L2,L,[X|LO]) :- member(X,L2),!,
+                                         not(member(X,L)),!,
                                          intersection_help(L1,L2,[X|L],LO).
 intersection_help([_|L1],L2,L,LO) :- intersection_help(L1,L2,L,LO).
 intersection(L1,L2,LO) :- intersection_help(L1, L2, [], LO).                                
