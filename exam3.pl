@@ -35,7 +35,8 @@ intersection(L1,L2,LO) :- intersection_help(L1, L2, [], LO).
 intersectionTrees(T1,T2,L) :- elements_in_tree(T1,L1),
                               elements_in_tree(T2,L2),
                               intersection(L1,L2,L).
-                              
+                      
+                      
 % ---------------------------SECOND SOLUTION ---------------------------------
 % For all elements in the first tree check if they appear in the second one,
 % and if yes then write them in a list (one for right path and one for left).
