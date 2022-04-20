@@ -36,5 +36,5 @@ eliminate2consecutivevalues(L,X,Y,L) :- not(first_pair(X,Y,L,_)).
 eliminate2consecutivevalues([],X,Y,[]).
 eliminate2consecutivevalues([A],X,Y,[A]).
 eliminate2consecutivevalues([X,Y|L],X,Y,L) :- !.
-eliminate2consecutivevalues([A,B|L],X,Y,[A|LO]) :- eliminate([B|L],X,Y,LO).
+eliminate2consecutivevalues([A,B|L],X,Y,[A|LO]) :- eliminate2consecutivevalues([B|L],X,Y,LO).
 
