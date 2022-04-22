@@ -23,10 +23,10 @@ deleteallX(X,[Y|T],[Y|L]):-deleteallX(X,T,L).
 noccurrencesInList([],_,[]).
 noccurrencesInList([X|L],N,[X|LO]):- occurrences_list(X,L,C2),
                                      C is C2+1, C==N, !,
-    								                 deleteallX(X,L,LR),
+                                     deleteallX(X,L,LR),
                                      noccurrencesInList(LR,N,LO),   
 noccurrencesInList([X|L],N,LO):- occurrences_list(X,L,_),
-    							               deleteallX(X,L,LR),
+                                 deleteallX(X,L,LR),
                                  noccurrencesInList(LR,N,LO).
 
 elements_in_tree(nil,[]).
