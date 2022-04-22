@@ -22,11 +22,11 @@ deleteallX(X,[Y|T],[Y|L]):-deleteallX(X,T,L).
 % noccurencesInList(List,N,Elements occurring N times in List)
 
 % If I have a noccurencesInList([1,1,1,2,2],3,L) it will take the
-% first element (1) and ask how many times it occurs in the rest of 
-% the list (its two times). Since we ask for elements that occur 3
+% first element 1 and ask how many times it occurs in the rest of 
+% the list (its 2 times). Since we ask for elements that occur 3
 % times, when we delete the two 1s from the rest of the list, we
 % will be left with list containing all the elements that occur
-% 3 times.
+% 3 times (L=[1]).
 
 noccurrencesInList([],_,[]).
 noccurrencesInList([X|L],N,[X|LO]):- occurrences_list(X,L,C2),
