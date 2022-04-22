@@ -43,6 +43,7 @@ elements_in_tree(t(X,L,R),[X|S]) :- elements_in_tree(L,SL),
                                     append(SL,SR,S).
                                     
 noccurrencesInTree(nil,_,[]).
-noccurrencesInTree(T,N,LO):- elements_in_tree(T,L),noccurrencesInList(L,N,LO).                                    
+noccurrencesInTree(T,N,LO):- elements_in_tree(T,L),
+                             noccurrencesInList(L,N,LO).                                    
                                     
                                     
