@@ -50,7 +50,7 @@ remove_duplicates([H|T],R) :- member(H,T), !,
 remove_duplicates([H|T],[H|R]) :- remove_duplicates(T,R).
 
 append_without_rep(L1,L2,LO) :- append(L1,L2,L),
-    						                remove_duplicates(L,LO).
+                                remove_duplicates(L,LO).
 
 intersectionTrees(nil,_,[]).
 intersectionTrees(_,nil,[]).
