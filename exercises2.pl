@@ -108,6 +108,10 @@ palindrome(L) :- reverse(L,L).
 % to the right of c in a pair, and Right list contains the elements
 % which appear to the left of c in a pair.
 
+% For example
+% listOfpairList([[1,2],[3,6],[5,6],[6,7],[6,9]],6,L1,L2).
+% will return L1=[7,9] and L2=[3,5]
+
 
 listOfpairList([],_,[], []).
 listOfpairList([[X,X]|L],X, [X|L1],[X|L2] ):- listOfpairList(L,X,L1,L2).
