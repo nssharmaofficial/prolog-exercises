@@ -44,22 +44,22 @@ searchNinTree(N,t(N,_,_)).
 searchNinTree(N,t(_,T1,_)) :- searchNinTree(N,T1).
 searchNinTree(N,t(_,_,T2)) :- searchNinTree(N,T2).
 
-intersection_help([],_,_,[]).
-intersection_help([X|L1],L2,L,[X|LO]) :- member(X,L2),
-                                         not(member(X,L)),
-                                         intersection_help(L1,L2,[X|L],LO).
-intersection_help([_|L1],L2,L,LO) :- intersection_help(L1,L2,L,LO).
-intersection(L1,L2,LO) :- intersection_help(L1, L2, [], LO).
+remove_duplicates([], []).
+remove_duplicates([H|T],R) :- member(H,T), !,
+                              remove_duplicates(T,R).
+remove_duplicates([H|T],[H|R]) :- remove_duplicates(T,R).
+
+append_without_rep(L1,L2,LO) :- append(L1,L2,L),
+    						                remove_duplicates(L,LO).
 
 intersectionTrees(nil,_,[]).
 intersectionTrees(_,nil,[]).
 intersectionTrees(t(X,T1,T2),T3,[X|L]) :-  searchNinTree(X,T3), !,
                                            intersectionTrees(T1,T3,L1),
                                            intersectionTrees(T2,T3,L2),
-                                           intersection (L1,L2,L).
-                                           
-intersectionTrees(t(X,T1,T2),T3,L) :- intersectionTrees(T1,T3,L1),
+                                           append_without_rep(L1,L2,L).                                        
+intersectionTrees(t(_,T1,T2),T3,L) :- intersectionTrees(T1,T3,L1),
                                       intersectionTrees(T2,T3,L2),
-                                      intersection(L1,L2,L).     
+                                      append_without_rep(L1,L2,L).   
                               		     		
                          
