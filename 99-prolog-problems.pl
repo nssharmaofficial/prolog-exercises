@@ -27,8 +27,8 @@ second_last_element([_|T],X) :- second_last_element(T,X).
 
 kth_element([X|_],1,[X]).
 kth_element([_|T],K,X) :- K>1, 
-    					            K2 is K-1,
-    					            kth_element(T,K2,X).
+    					  K2 is K-1,
+    					  kth_element(T,K2,X).
                 
 
 % 1.04 (*) Find the number of elements of a list.
@@ -49,7 +49,7 @@ my_length([_|T],L) :- my_length(T,L2), L is L2+1.
 
 reverse([],[]).
 reverse([H|T],L) :- reverse(T,LO),
-    				        append(LO,[H],L).
+    				append(LO,[H],L).
 
 
 % 1.06 (*) Find out whether a list is a palindrome.
@@ -107,7 +107,7 @@ duplicates_in_sublist([X|T],[[X],[Y|T1]|T2]):-duplicates_in_sublist(T,[[Y|T1]|T2
 encode([],[]).
 encode([X],[[1,X]]).
 encode([X,X|T], [[N,X]|T2]) :- encode([X|T],[[N2,X]|T2]),
-    						               N is N2+1.
+    						   N is N2+1.
 encode([X,Y|T], [[1,X],[N,Y]|T2]) :- encode([Y|T],[[N,Y]|T2]).
 
 
@@ -119,11 +119,11 @@ encode([X,Y|T], [[1,X],[N,Y]|T2]) :- encode([Y|T],[[N,Y]|T2]).
 
 decode([],[]).
 decode([[N,X]|T],L) :- write_multiple(X,N,L1),
-    					          decode(T,L2),
-    					          append(L1,L2,L).
+    				   decode(T,L2),
+    				   append(L1,L2,L).
 write_multiple(_,0,[]).
 write_multiple(X,N,[X|L]) :- N2 is N-1,
-    						             write_multiple(X,N2,L).
+    						 write_multiple(X,N2,L).
 
 
 % 1.15 ()*) Duplicate the elements of a list a given number of times.
@@ -134,8 +134,8 @@ write_multiple(X,N,[X|L]) :- N2 is N-1,
 
 duplicate([],_,[]).
 duplicate([X|T],N,L) :- write_multiple(X,N,L1),
-    						        duplicate(T,N,L2),
-    						        append(L1,L2,L).
+    				    duplicate(T,N,L2),
+    				    append(L1,L2,L).
 
 
 % 1.16 (**) Drop every Nth element from a list.
@@ -173,7 +173,7 @@ drop(N,[_|T],Y) :- N > 0,
 % L1 = [a, b, c]
 % L2 = [d, e, f, g]
 
-split(X,N,L1,L2) :- take(N,X,L1), drop(N,X,L2).
+split(X,N,L1,L2) :- take(N,X,L1),drop(N,X,L2).
 
 
 % 1.18 (**) Extract a slice from a list.
@@ -186,8 +186,8 @@ split(X,N,L1,L2) :- take(N,X,L1), drop(N,X,L2).
 % L = [c, d, e, f, g]
 
 slice(L,Start,End,LO) :- take(End,L,L1),
-    					           Start2 is Start-1,
-    					           drop(Start2,L1,LO).
+    					 Start2 is Start-1,
+    					 drop(Start2,L1,LO).
                          
 
 % 1.20 (*) Remove the Kth element from a list.
@@ -198,8 +198,8 @@ slice(L,Start,End,LO) :- take(End,L,L1),
 % R = [a, c, d]
 
 remove_at(X, L, N, LO) :- N2 is N-1,
-    					            split(L, N2, L1, [X|L2]),
-    					            append(L1, L2, LO).
+    					  split(L, N2, L1, [X|L2]),
+    					  append(L1, L2, LO).
 
 
 % 1.21 (*) Insert an element at a given position into a list.
@@ -209,8 +209,8 @@ remove_at(X, L, N, LO) :- N2 is N-1,
 % L = [a,alfa,b,c,d]
 
 insert_at(X,L,N,LO) :- N2 is N-1,
-    				           split(L,N2,L1,L2),
-    				           append(L1,[X|L2],LO).
+    				   split(L,N2,L1,L2),
+    				   append(L1,[X|L2],LO).
                        
                        
                        
