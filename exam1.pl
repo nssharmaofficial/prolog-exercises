@@ -19,4 +19,13 @@ ascendingorder(L,N1,N2,LO):- insert(N1,L,L1),
                              insert(N2,L1,L2),
                              remove_duplicates(L2,LO).
                              
-  
+
+% --------------------------- OTHER SOLUTION---------------------------------------
+
+ascendingorder(L,N1,N2,LO) :- N1=<N2,
+                              merge(L,[N1,N2],L1),
+                              remove_duplicates(L1,LO).
+ascendingorder(L,N1,N2,LO) :- N1>N2,
+                              merge(L,[N2,N1],L1),
+                              remove_duplicates(L1,LO).                              
+                              
