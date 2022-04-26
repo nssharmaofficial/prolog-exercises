@@ -19,9 +19,13 @@
 % intersection of both the lists to remove duplicates.
 
 elements_in_tree(nil,[]).
-elements_in_tree(t(X,L,R),[X|S]) :- elements_in_tree(L,SL), 
+elements_in_tree(t(X,L,R),S) :- elements_in_tree(L,SL), 
                                     elements_in_tree(R,SR), 
-                                    append(SL,SR,S).
+                                    append(SL,[X|SR],S).
+
+% if my tree is like t(7,6,10),... where left node is less than root and 
+% right node is higher than root, then when getting the elements_in_tree
+% i will get straight the list in ascending order.
     					                       
 intersection_help([],_,_,[]).
 intersection_help([X|L1],L2,L,[X|LO]) :- member(X,L2),
