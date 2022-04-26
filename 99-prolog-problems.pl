@@ -49,7 +49,7 @@ my_length([_|T],L) :- my_length(T,L2), L is L2+1.
 
 reverse([],[]).
 reverse([H|T],L) :- reverse(T,LO),
-    				append(LO,[H],L).
+                    append(LO,[H],L).
 
 
 % 1.06 (*) Find out whether a list is a palindrome.
