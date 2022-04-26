@@ -206,8 +206,8 @@ remove_at(X,L,N,LO) :- N2 is N-1,
 % L = [a,alfa,b,c,d]
 
 insert_at(X,L,N,LO) :- N2 is N-1,
-    				   split(L,N2,L1,L2),
-    				   append(L1,[X|L2],LO).
+                       split(L,N2,L1,L2),
+                       append(L1,[X|L2],LO).
                        
                        
                        
